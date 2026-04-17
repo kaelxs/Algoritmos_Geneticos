@@ -1,138 +1,137 @@
-# 🧬 Algoritmos Genéticos Aplicados al Aprendizaje de Máquina
+# Algoritmos Genéticos Aplicados al Aprendizaje de Máquina
 
-## 📌 Actividad 02 – Resumen Ejecutivo
+## Actividad 02 – Resumen Ejecutivo
 
-📅 **Fecha de presentación:** 16 de abril de 2026
-🔗 **Repositorio:** [https://github.com/kaelxs/Algoritmos_Geneticos](https://github.com/kaelxs/Algoritmos_Geneticos)
+Fecha de presentación: 16 de abril de 2026
+Repositorio: [https://github.com/kaelxs/Algoritmos_Geneticos](https://github.com/kaelxs/Algoritmos_Geneticos)
 
 ---
 
-## 📖 1. Descripción General
+## Colaboradores
 
-Este proyecto implementa **Algoritmos Genéticos (AG)** aplicados a problemas de **Machine Learning** utilizando Python y Google Colab.
+* MAMANI MENDOZA JOSEPH ELVIS
+* TAPARA CCAHUANA PAUL RENMIS
+* TICONA ERQUINIGO JHOEL YOVANI
 
-Cada implementación sigue el ciclo completo del algoritmo genético:
+---
+
+## 1. Descripción General
+
+El presente proyecto implementa Algoritmos Genéticos aplicados a problemas de aprendizaje automático utilizando el lenguaje de programación Python y el entorno Google Colab.
+
+Cada implementación sigue el ciclo completo del algoritmo genético, el cual incluye:
 
 * Representación cromosómica
-* Inicialización de población
-* Función de aptitud (fitness)
-* Selección
-* Cruzamiento
-* Mutación
+* Inicialización de la población
+* Definición de la función de aptitud (fitness)
+* Proceso de selección
+* Operadores de cruzamiento
+* Operadores de mutación
 * Criterio de terminación
 
-Se utilizan datasets reales de **scikit-learn y Kaggle** para tres aplicaciones principales.
+Se emplean conjuntos de datos reales provenientes de las bibliotecas scikit-learn y Kaggle, aplicados en tres escenarios distintos de optimización.
 
 ---
 
-## 📊 2. Resumen de los Experimentos
+## 2. Resumen de los Experimentos
 
-| # | Técnica                     | Dataset                 | Modelo              | Accuracy | Resultado Principal                             |
-| - | --------------------------- | ----------------------- | ------------------- | -------- | ----------------------------------------------- |
-| 1 | Feature Selection           | Car Evaluation (Kaggle) | Logistic Regression | ~92%     | Selecciona 2/6 features: *persons*, *safety*    |
-| 2 | Hyperparameter Optimization | Wine (sklearn)          | Random Forest       | 97.78%   | Mejora +0.57% (n_estimators=50, max_depth=None) |
-| 3 | Neuroevolution              | Digits 0-9 (sklearn)    | MLP Neural Network  | 95.05%   | (256,), relu, lr=0.05, sgd → +0.67%             |
-
----
-
-## ⚙️ 3. Implementación del Algoritmo Genético
-
-### 🧪 3.1 Feature Selection
-
-* Cromosoma: vector binario (0/1)
-* Gen: feature activa o inactiva
-* Fitness: Accuracy CV-5 − penalización por número de features
-* Selección: aleatoria
-* Cruzamiento: un punto
-* Mutación: bit-flip
+| Nº | Técnica                         | Dataset                   | Modelo              | Accuracy | Resultado Principal                             |
+| -- | ------------------------------- | ------------------------- | ------------------- | -------- | ----------------------------------------------- |
+| 1  | Selección de Características    | Car Evaluation (Kaggle)   | Regresión Logística | ~92%     | Selección de 2 de 6 variables: persons y safety |
+| 2  | Optimización de Hiperparámetros | Wine (scikit-learn)       | Random Forest       | 97.78%   | Mejora de +0.57% respecto al modelo base        |
+| 3  | Neuroevolución                  | Digits 0-9 (scikit-learn) | Red Neuronal MLP    | 95.05%   | Arquitectura óptima (256,), relu, lr=0.05, sgd  |
 
 ---
 
-### 🧪 3.2 Hyperparameter Optimization
+## 3. Implementación del Algoritmo Genético
 
-* Cromosoma: índices de hiperparámetros
-* Fitness: Accuracy CV-5 (Random Forest)
-* Selección: ruleta
+### 3.1 Selección de Características
+
+* Representación: vector binario (0/1)
+* Cada gen representa la inclusión o exclusión de una característica
+* Función de aptitud: precisión mediante validación cruzada menos penalización por número de variables
+* Método de selección: aleatorio
+* Cruzamiento: de un punto
+* Mutación: cambio de bits
+
+---
+
+### 3.2 Optimización de Hiperparámetros
+
+* Representación: vector de índices de hiperparámetros
+* Función de aptitud: precisión media con validación cruzada utilizando Random Forest
+* Método de selección: ruleta proporcional
 * Cruzamiento: uniforme
-* Mutación: cambio aleatorio dentro del rango
+* Mutación: reemplazo aleatorio dentro del rango permitido
 
 ---
 
-### 🧪 3.3 Neuroevolution
+### 3.3 Neuroevolución
 
-* Cromosoma: 7 genes (arquitectura de red neuronal)
-* Fitness: Accuracy CV-3 (MLPClassifier)
-* Selección: torneo (k=3)
-* Cruzamiento: dos puntos
-* Mutación: reemplazo aleatorio
-
----
-
-## 🧠 4. Detalles Técnicos
-
-### 🔹 Feature Selection
-
-* Dataset categórico codificado con LabelEncoder
-* Penalización para evitar exceso de features
-* Resultado: 2 features mantienen ~92% accuracy
-
-### 🔹 Hyperparameter Optimization
-
-* Espacio de búsqueda de Random Forest
-* Cruzamiento uniforme mejora diversidad
-* Mejora +0.57% respecto al baseline
-
-### 🔹 Neuroevolution
-
-* Evolución de arquitectura de red neuronal
-* Elitismo top-2 para estabilidad
-* Mejora de rendimiento sin sobreajuste
+* Representación: vector de 7 genes que define la arquitectura de la red neuronal
+* Función de aptitud: precisión mediante validación cruzada con MLPClassifier
+* Método de selección: torneo (k=3)
+* Cruzamiento: de dos puntos
+* Mutación: reemplazo aleatorio de genes
 
 ---
 
-## 📁 5. Estructura del Repositorio
+## 4. Detalles Técnicos
 
-```
+### 4.1 Selección de Características
+
+* Codificación de variables categóricas mediante LabelEncoder
+* Inclusión de penalización para evitar sobreajuste
+* Reducción de dimensionalidad sin pérdida significativa de precisión
+
+### 4.2 Optimización de Hiperparámetros
+
+* Exploración del espacio de búsqueda de Random Forest
+* Mejora del rendimiento mediante exploración genética
+* Incremento de precisión respecto a configuración por defecto
+
+### 4.3 Neuroevolución
+
+* Evolución de arquitecturas de redes neuronales artificiales
+* Uso de elitismo para preservar mejores soluciones
+* Mejora progresiva del rendimiento del modelo
+
+---
+
+## 5. Estructura del Repositorio
+
 Algoritmos_Geneticos/
-│
-├── tarea_02_machine_learning.ipynb
-```
+
+* tarea_02_machine_learning.ipynb
+* README.md
 
 ---
 
-## 🚀 6. Ejecución
+## 6. Ejecución
 
-Cada script puede ejecutarse en **Google Colab** o localmente con Python.
+Los scripts pueden ejecutarse en Google Colab o en un entorno local con Python.
 
-### Requisitos:
+Dependencias requeridas:
 
-```
-numpy
-scikit-learn
-```
+* numpy
+* scikit-learn
 
-### Ejecución:
-
-```bash
-python ag_feature_selection.py
-python ag_hyperparameter_optimization.py
-python ag_neuroevolution.py
-```
+Ejecución:
+tarea_02_machine_learning.ipynb
 
 ---
 
-## 🧾 7. Conclusión
+## 7. Conclusión
 
-Este proyecto demuestra cómo los **Algoritmos Genéticos** pueden optimizar:
+El presente trabajo demuestra la aplicación de Algoritmos Genéticos en problemas de aprendizaje automático, específicamente en:
 
-* Selección de variables
-* Hiperparámetros de modelos
-* Arquitecturas de redes neuronales
+* Selección de variables relevantes
+* Optimización de hiperparámetros
+* Diseño de arquitecturas de redes neuronales
 
-Mejorando el rendimiento de modelos de Machine Learning de forma automática.
+Los resultados evidencian mejoras en el rendimiento de los modelos mediante técnicas evolutivas de optimización.
 
 ---
 
-## 📌 Actividad 02 – Algoritmos Genéticos en Machine Learning
-
-📅 Presentación: Jueves 16/04/2026
+Actividad 02 – Algoritmos Genéticos en Machine Learning
+Fecha de presentación: 16/04/2026
