@@ -2,7 +2,7 @@
 
 ## Actividad 02 – Resumen Ejecutivo
 
-Fecha de presentación: 16 de abril de 2026
+Fecha de presentación: 17 de abril de 2026
 Repositorio: [https://github.com/kaelxs/Algoritmos_Geneticos](https://github.com/kaelxs/Algoritmos_Geneticos)
 
 ---
@@ -134,4 +134,4 @@ Los resultados evidencian mejoras en el rendimiento de los modelos mediante téc
 ---
 
 Actividad 02 – Algoritmos Genéticos en Machine Learning
-Fecha de presentación: 16/04/2026
+Fecha de presentación: 17/04/2026
