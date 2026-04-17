@@ -4,7 +4,7 @@
 
 Fecha de presentación: 17 de abril de 2026
 Repositorio: [https://github.com/kaelxs/Algoritmos_Geneticos](https://github.com/kaelxs/Algoritmos_Geneticos)
-
+colab: https://colab.research.google.com/drive/1Pi4AQDBn0UckhmSszkxPbIOgmR8Zvduz?usp=sharing
 ---
 
 ## Colaboradores
